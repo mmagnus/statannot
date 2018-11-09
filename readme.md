@@ -15,7 +15,11 @@ Python package to add statistical annotations on an existing boxplot generated b
 ```python
 ax = sns.boxplot(x="day", y="total_bill", data=df)
 add_statistical_test_annotation(ax, df, [("Thur", "Fri"), ("Thur", "Sat"), ("Fri", "Sun")],
-                                test='Mann-Whitney', order=None, textFormat='star', loc='outside', verbose=2);
+                                test='Mann-Whitney',
+                                order=None,
+                                textFormat='star',
+                                loc='outside',
+                                verbose=2);
 ```
 ![Example 1](/example/example1.png "")
 
@@ -23,7 +27,11 @@ add_statistical_test_annotation(ax, df, [("Thur", "Fri"), ("Thur", "Sat"), ("Fri
 ```python
 ax = sns.boxplot(x="day", y="total_bill", data=df)
 add_statistical_test_annotation(ax, df, [("Thur", "Fri"), ("Thur", "Sat"), ("Fri", "Sun")],
-                                test='t-test', order=None, textFormat='full', loc='inside', verbose=2);
+                                test='t-test',
+                                order=None,
+                                textFormat='full',
+                                loc='inside',
+                                verbose=2);
 ```
 
 ![Example 2](/example/example2.png "")
