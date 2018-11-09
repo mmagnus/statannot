@@ -13,25 +13,22 @@ Python package to add statistical annotations on an existing boxplot generated b
 ## Example
 
 ```python
-ax = sns.boxplot(x="day", y="total_bill", data=df)
-add_statistical_test_annotation(ax, df, [("Thur", "Fri"), ("Thur", "Sat"), ("Fri", "Sun")],
-                                test='Mann-Whitney',
-                                order=None,
-                                textFormat='star',
-                                loc='outside',
-                                verbose=2);
+ax = sns.boxplot(data=df, x=x, y=y, order=order)
+add_stat_annotation(ax, data=df, x=x, y=y, order=order,
+                    boxPairList=[("Thur", "Fri"), ("Thur", "Sat"), ("Fri", "Sun")],
+                    test='Mann-Whitney', textFormat='star', loc='outside', verbose=2)
 ```
 ![Example 1](/example/example1.png "")
 
 
 ```python
-ax = sns.boxplot(x="day", y="total_bill", data=df)
-add_statistical_test_annotation(ax, df, [("Thur", "Fri"), ("Thur", "Sat"), ("Fri", "Sun")],
-                                test='t-test',
-                                order=None,
-                                textFormat='full',
-                                loc='inside',
-                                verbose=2);
+ax = sns.boxplot(data=df, x=x, y=y, hue=hue)
+add_stat_annotation(ax, data=df, x=x, y=y, hue=hue,
+                    boxPairList=[(("Thur", "No"), ("Fri", "No")),
+                                 (("Sat", "Yes"), ("Sat", "No")),
+                                 (("Sun", "No"), ("Thur", "Yes"))
+                                ],
+                    test='t-test', textFormat='full', loc='inside', verbose=2)
 ```
 
 ![Example 2](/example/example2.png "")
