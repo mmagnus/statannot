@@ -10,7 +10,21 @@ Python package to add statistical annotations on an existing boxplot generated b
 - Annotations can be located inside or outside the plot.
 - Format of the statistical test can be customized: star annotation, or explicit pvalue.
 
+## Example
+
+```python
+ax = sns.boxplot(x="day", y="total_bill", data=df)
+add_statistical_test_annotation(ax, df, [("Thur", "Fri"), ("Thur", "Sat"), ("Fri", "Sun")],
+                                test='Mann-Whitney', order=None, textFormat='star', loc='outside', verbose=2);
+```
 ![Example 1](/example/example1.png "")
+
+
+```python
+ax = sns.boxplot(x="day", y="total_bill", data=df)
+add_statistical_test_annotation(ax, df, [("Thur", "Fri"), ("Thur", "Sat"), ("Fri", "Sun")],
+                                test='t-test', order=None, textFormat='full', loc='inside', verbose=2);
+```
 
 ![Example 2](/example/example2.png "")
 
@@ -22,4 +36,3 @@ Python package to add statistical annotations on an existing boxplot generated b
 + matplotlib >= 2.2.2
 + pandas >= 0.23.0
 + scipy >= 1.1.0
-
